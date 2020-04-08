@@ -7,7 +7,6 @@
 
 #include "rpg.h"
 #include "basic.h"
-//#include "sizesprite.h"
 
 void test_arrows(int spritepos, handle_t handle_sprite)
 {

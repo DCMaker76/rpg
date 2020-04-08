@@ -68,14 +68,6 @@ typedef struct settings
 
 settings_t settings;
 
-typedef struct game
-{
-    sfTexture **tx;
-    sfSprite **sp;
-}game_t;
-
-game_t game;
-
 typedef struct pause_game
 {
     sfTexture **tx;
@@ -92,6 +84,7 @@ typedef struct states
 
 states_t states;
 
+sfIntRect rect;
 sfFont *font;
 sfMusic *music;
 

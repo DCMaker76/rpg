@@ -12,8 +12,7 @@ void game_player_choose(void)
     switch(states.game_states)
     {
         case player_choose:
-            sfRenderWindow_clear(handle_window, sfBlack);
-            sfRenderWindow_display(handle_window);
+            player_choose_display();
             break;
         case map_charg:
             sfRenderWindow_clear(handle_window, sfBlue);

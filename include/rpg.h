@@ -9,6 +9,7 @@
 #define rpg
 
 #include "engine.h"
+#include "player.h"
 
 
 void game_player_choose(void);
@@ -18,6 +19,7 @@ handle_t initengine(void);
 handle_arrow_t initarrow(void);
 settings_butt_t settcircle(void);
 settings_t settengine(void);
+sfIntRect clock_player(sfIntRect rect_player, int size);
 void initmusic(void);
 void settings_display(void);
 void musicbar(void);

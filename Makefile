@@ -13,6 +13,8 @@ RM	= rm -f
 
 SRCS	= ./game_func/display/handle_display.c \
 	  ./game_func/display/game.c \
+	  ./game_func/game/player_engine.c \
+	  ./game_func/game/player_display.c \
 	  ./game_func/settings/settings.c \
 	  ./game_func/handle.c \
 	  ./game_func/mouse.c \

@@ -7,6 +7,7 @@
 
 #include "rpg.h"
 #include "basic.h"
+#include "player.h"
 
 void eventclose(sfEvent event)
 {
@@ -24,6 +25,9 @@ void eventclose(sfEvent event)
 
 void destroy(void)
 {
+    free(pl.sp);
+    free(pl.tx);
+    free(pl.texts);
     free(handle.sp);
     free(handle.tx);
     free(handle.texts);
@@ -63,18 +67,21 @@ void event_loop(sfEvent event)
                 musicbar();
             test_mouse_sett(2, 100, 350);
             test_mouse_sett(3, 100, 350);
-            test_mouse_sett(8, 68, 68);
-            test_mouse_sett(9, 68, 68);
+            test_mouse_sett(8, 80, 80);
+            test_mouse_sett(9, 80, 80);
         }
     }
 }
 
 void handle_play(void)
 {
+    sfIntRect rect_knight = {0, 0, 16, 28};
+    clock = sfClock_create();
     handle_window = create_window(1920, 1080, 64);
     handle_t handle_sprite = initengine();
     hdl_arrow = initarrow();
     settings = settengine();
+    pl = player_engine();
     sfEvent event;
     initmusic();
     cirbutt = settcircle();
@@ -82,6 +89,9 @@ void handle_play(void)
     while (sfRenderWindow_isOpen(handle_window)) {
         event_loop(event);
         switch_display(handle_sprite);
+        rect_knight = clock_player(rect_knight, 64);
+        rect = rect_knight;
+
     }
     destroy();
 }
