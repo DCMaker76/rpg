@@ -45,10 +45,7 @@ void switch_display(handle_t handle_sprite)
             settings_display();
             break;
         case gme:
-            sfRenderWindow_clear(handle_window, sfRed);
-            sfRenderWindow_display(handle_window);
-            break;
-        case ps_gme :
+            game_player_choose();
             break;
     }
 }

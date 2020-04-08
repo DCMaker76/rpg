@@ -10,6 +10,8 @@
 
 #include "engine.h"
 
+
+void game_player_choose(void);
 sfRenderWindow *create_window(int width, int hight, int pixel);
 sfRenderWindow *handle_window;
 handle_t initengine(void);

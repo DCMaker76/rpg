@@ -49,9 +49,10 @@ void test_button_sett(int spritepos)
 
 void test_button(int spritepos)
 {
-    if (spritepos == 1)
+    if (spritepos == 1) {
         states.display_states = 2;
-    if (spritepos == 2) {
+        states.game_states = 0;
+    } if (spritepos == 2) {
         settings.musicvolume = sfMusic_getVolume(music);
         states.display_states = 1;
     }

@@ -15,12 +15,19 @@
 #include <SFML/System.h>
 #include <SFML/Window.h>
 
+enum state_ingame
+{
+    player_choose,
+    map_charg,
+    gmes,
+    ps_gme
+};
+
 enum state_game
 {
     hdle,
     sett,
     gme,
-    ps_gme
 };
 
 typedef struct handle
@@ -80,6 +87,7 @@ pause_t pause_game;
 typedef struct states
 {
     int display_states;
+    int game_states;
 }states_t;
 
 states_t states;
