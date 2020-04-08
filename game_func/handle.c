@@ -18,7 +18,8 @@ void eventclose(sfEvent event)
         && states.display_states == 0)
             sfRenderWindow_close(handle_window);
         if (sfKeyboard_isKeyPressed(sfKeyEscape)
-        && (states.display_states == 1 || states.display_states == 2))
+        && (states.display_states == 1 || (states.display_states == 2
+        && states.game_states == 0)))
             states.display_states = 0;
     }
 }
@@ -69,6 +70,11 @@ void event_loop(sfEvent event)
             test_mouse_sett(3, 100, 350);
             test_mouse_sett(8, 80, 80);
             test_mouse_sett(9, 80, 80);
+        } if (states.display_states == 2) {
+            if (states.game_states == 0) {
+                test_mouse_game(1, 100, 350);
+                test_mouse_game(2, 100, 350);
+            }
         }
     }
 }

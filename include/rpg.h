@@ -24,6 +24,7 @@ void initmusic(void);
 void settings_display(void);
 void musicbar(void);
 void test_arrows(int spritepos, handle_t handle_sprite);
+void test_mouse_game(int spritepos, int x, int x1);
 void test_mouse(int spritepos, int x, int x1);
 void test_mouse_sett(int spritepos, int x, int x1);
 void test_arrows_sett(int spritepos);

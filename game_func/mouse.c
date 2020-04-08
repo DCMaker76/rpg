@@ -68,9 +68,8 @@ void test_mouse(int spritepos, int x, int x1)
         pos = sfMouse_getPositionRenderWindow(handle_window);
         sprite = sfSprite_getPosition(handle.sp[spritepos]);
         if (pos.y < sprite.y + x && pos.y > sprite.y
-        && pos.x < sprite.x + x1 && pos.x > sprite.x) {
-                test_button(spritepos);
-        }
+        && pos.x < sprite.x + x1 && pos.x > sprite.x)
+            test_button(spritepos);
     }
 }
 
@@ -83,8 +82,7 @@ void test_mouse_sett(int spritepos, int x, int x1)
         pos = sfMouse_getPositionRenderWindow(handle_window);
         sprite = sfSprite_getPosition(settings.sp[spritepos]);
         if (pos.y < sprite.y + x && pos.y > sprite.y
-        && pos.x < sprite.x + x1 && pos.x > sprite.x) {
-                test_button_sett(spritepos);
-        }
+        && pos.x < sprite.x + x1 && pos.x > sprite.x)
+            test_button_sett(spritepos);
     }
 }

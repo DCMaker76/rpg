@@ -15,7 +15,7 @@ void game_player_choose(void)
             player_choose_display();
             break;
         case map_charg:
-            sfRenderWindow_clear(handle_window, sfBlue);
+            sfRenderWindow_clear(handle_window, sfBlack);
             sfRenderWindow_display(handle_window);
             break;
         case gmes:
