@@ -16,10 +16,10 @@ void test_arrows_game(int spritepos)
 
     pos = sfMouse_getPositionRenderWindow(handle_window);
     sprite = sfSprite_getPosition(pl.sp[spritepos]);
+    sfSprite_setPosition(hdl_arrow.sp[spritepos],
+    (sfVector2f){plsizex[spritepos], plsizey[spritepos]});
     if (pos.y < sprite.y + 100 && pos.y > sprite.y
     && pos.x < sprite.x + 350 && pos.x > sprite.x) {
-        sfSprite_setPosition(hdl_arrow.sp[spritepos],
-        (sfVector2f){plsizex[spritepos], plsizey[spritepos]});
         sfRenderWindow_drawSprite(handle_window,
         hdl_arrow.sp[spritepos], NULL);
         sfRenderWindow_drawText(handle_window, pl.texts[spritepos], NULL);

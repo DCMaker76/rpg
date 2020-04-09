@@ -8,68 +8,31 @@
 #include "rpg.h"
 #include "sizesprite.h"
 
+long map(long x, long in_min, long in_max)
+{
+    long out_min = 0;
+    long out_max = 100;
+
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 void sound_test(sfVector2i mouse)
 {
-    if (mouse.x >= 750 && mouse.x < 780) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0, 1});
-    }if (mouse.x >= 780 && mouse.x < 800) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.1, 1});
-    }if (mouse.x >= 800 && mouse.x < 850) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.2, 1});
-    }if (mouse.x >= 850 && mouse.x < 900) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.3, 1});
-    }if (mouse.x >= 900 && mouse.x < 950) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.4, 1});
-    }if (mouse.x >= 950 && mouse.x < 1000) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.5, 1});
-    }if (mouse.x >= 1000 && mouse.x < 1050) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.6, 1});
-    }if (mouse.x >= 1050 && mouse.x < 1150) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.7, 1});
-    }if (mouse.x >= 1150 && mouse.x < 1180) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.8, 1});
-    }if (mouse.x >= 1180 && mouse.x < 1190) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){0.9, 1});
-    }if (mouse.x >= 1190 && mouse.x <= 1200) {
-        sfSprite_setScale(settings.sp[7], (sfVector2f){1, 1});
-    }
+    float val = 0;
+
+    val = map(mouse.x, 766, 1190);
+    if (val / 100 <= 1 || val / 100 >= 0)
+        sfSprite_setScale(settings.sp[7], (sfVector2f){val / 100, 1});
 }
 
 void music_test(sfVector2i mouse)
 {
-    if (mouse.x >= 750 && mouse.x < 780) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0, 1});
-        sfMusic_setVolume(music, 0);
-    }if (mouse.x >= 780 && mouse.x < 800) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.1, 1});
-        sfMusic_setVolume(music, 10);
-    }if (mouse.x >= 800 && mouse.x < 850) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.2, 1});
-        sfMusic_setVolume(music, 20);
-    }if (mouse.x >= 850 && mouse.x < 900) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.3, 1});
-        sfMusic_setVolume(music, 30);
-    }if (mouse.x >= 900 && mouse.x < 950) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.4, 1});
-        sfMusic_setVolume(music, 40);
-    }if (mouse.x >= 950 && mouse.x < 1000) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.5, 1});
-        sfMusic_setVolume(music, 50);
-    }if (mouse.x >= 1000 && mouse.x < 1050) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.6, 1});
-        sfMusic_setVolume(music, 60);
-    }if (mouse.x >= 1050 && mouse.x < 1150) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.7, 1});
-        sfMusic_setVolume(music, 70);
-    }if (mouse.x >= 1150 && mouse.x < 1180) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.8, 1});
-        sfMusic_setVolume(music, 80);
-    }if (mouse.x >= 1180 && mouse.x < 1190) {
-        sfSprite_setScale(settings.sp[6], (sfVector2f){0.9, 1});
-        sfMusic_setVolume(music, 90);
-    }if (mouse.x >= 1190 && mouse.x <= 1200) {
-        sfMusic_setVolume(music, 100);
-        sfSprite_setScale(settings.sp[6], (sfVector2f){1, 1});
+    float val = 0;
+
+    val = map(mouse.x, 766, 1190);
+    if (val / 100 <= 1 || val / 100 >= 0) {
+        sfSprite_setScale(settings.sp[6], (sfVector2f){val / 100, 1});
+        sfMusic_setVolume(music, val);
     }
 }
 
@@ -95,7 +58,7 @@ void musicbar(void)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(handle_window);
 
-    if (mouse.x >= 750 && mouse.x <= 1200) {
+    if (mouse.x >= 766 && mouse.x <= 1190) {
         if (mouse.y >= 300 && mouse.y <= 333)
             music_test(mouse);
         if (mouse.y >= 400 && mouse.y <= 433)
